@@ -1,3 +1,14 @@
+let voitureMauve = document.getElementById("mauve");
+let voitureRouge = document.getElementById("rouge");
+let translationX1;
+let translationX2;
+let containerWidth = document.getElementById("courseContainer").offsetWidth;
+
+
+
+
+
+
 function demarrerCourse() {
   let message = document.getElementById("message");
   message.style.display = "block";
