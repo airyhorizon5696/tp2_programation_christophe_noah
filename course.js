@@ -3,11 +3,15 @@ let voitureRouge = document.getElementById("rouge");
 let maxTranslationXMauve;
 let maxTranslationXRouge;
 let containerWidth = document.getElementById("courseContainer").offsetWidth;
+
 let voitureMauveWidth = document.getElementById("mauve").offsetWidth;
 let voitureRougeWidth = document.getElementById("rouge").offsetWidth;
 let message = document.getElementById("message");
-// Variables intervalles
 
+console.log(voitureMauveWidth);
+console.log(voitureRougeWidth);
+console.log(containerWidth);
+// Variables intervalles
 let intervalChrono;
 let intervalCourse;
 
@@ -25,6 +29,7 @@ function compteARebour() {
       setTimeout(() => {
         message.style.display = "none";
         chronometre();
+        deplacerVoiture();
       }, 1000);
     }
   }, 1000);
@@ -73,23 +78,44 @@ function demarrerCourse() {
 }
 
 // Déplacement des voitures
-function deplacerVoiture() {
-  // translation randomiser
-  function aleatoireTranslationX() {
-    let maxTranslationXMauve = containerWidth - voitureMauveWidth;
-    let maxTranslationXRouge = containerWidth - voitureRougeWidth;
 
-    //Distance aléatoire pour les deux voitures
-    let randomXRouge = Math.random() * maxTranslationXMauve;
-    let randomXMauve = Math.random() * maxTranslationXRouge;
-    Math.floor(randomX); // tu doit nommer ton set interval comme j'ai fait pour le chrono ex intervalTrasnlation = set intervalles
-  }
+function aleatoireTranslationX() {
+  return Math.floor(Math.random() * 10);
+}
+
+function deplacerVoiture() {
+  let translationX1 = 0;
+  let translationX2 = 0;
+
+  let maxXMauve = containerWidth - voitureMauveWidth;
+  let maxXRouge = containerWidth - voitureRougeWidth;
+
+  translationVoiture = setInterval(() => {
+    translationX1 += aleatoireTranslationX();
+    translationX2 += aleatoireTranslationX();
+
+    if (translationX1 >= maxXMauve) {
+      translationX1 = maxXMauve;
+      document.getElementById("resultat").innerHTML = "Mauve a gagné !";
+    }
+
+    if (translationX2 >= maxXRouge) {
+      translationX2 = maxXRouge;
+      document.getElementById("resultat").innerHTML = "Rouge a gagné !";
+    }
+
+    voitureMauve.style.left = translationX1 + "px";
+    voitureRouge.style.left = translationX2 + "px";
+
+    if (translationX1 >= maxXMauve || translationX2 >= maxXRouge) {
+      clearInterval(translationVoiture);
+      clearInterval(intervalChrono);
+    }
+  }, 50);
 }
 
 // Arreter la voiture
 function arreterCourse() {
   clearInterval(intervalChrono);
-  clearInterval(translationVoiture); // NOAH nomme ton setintervalle comme ça "translationVoiture" ou change celui la et nomme le d'une autre façons c comme tu veux
+  clearInterval(translationVoiture);
 }
-
-//  FAIRE LANCER COURSE AVEC A L'INTÉRIEUR CHRONO ET TOUT LE RESTE POUR
