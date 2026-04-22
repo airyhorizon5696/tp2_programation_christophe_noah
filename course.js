@@ -17,7 +17,20 @@ let intervalCourse;
 
 // Compte a rebour:départ
 function compteARebour() {
-  let textes = ["À vos marque,", "prêt?", "PARTEZ"];
+  let textes = [
+    "10",
+    "9",
+    "8",
+    "7",
+    "6",
+    "5",
+    "4",
+    "3",
+    "2",
+    "1",
+    "0",
+    "PARTEZ!!",
+  ];
   let index = 0;
   message.textContent = textes[index];
   message.style.display = "flex";
@@ -87,8 +100,11 @@ function deplacerVoiture() {
   let translationX1 = 0;
   let translationX2 = 0;
 
-  let maxXMauve = containerWidth - voitureMauveWidth;
-  let maxXRouge = containerWidth - voitureRougeWidth;
+  let ligneArrivee = document.getElementById("ligneArrivee");
+  let positionDeFin = ligneArrivee.offsetLeft;
+
+  let maxXMauve = positionDeFin - voitureMauveWidth;
+  let maxXRouge = positionDeFin - voitureRougeWidth;
 
   translationVoiture = setInterval(() => {
     translationX1 += aleatoireTranslationX();
@@ -111,7 +127,7 @@ function deplacerVoiture() {
       clearInterval(translationVoiture);
       clearInterval(intervalChrono);
     }
-  }, 50);
+  }, 20);
 }
 
 // Arreter la voiture

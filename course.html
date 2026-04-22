@@ -8,52 +8,47 @@
   </head>
   <body>
     <div class="course_container" id="courseContainer">
-    <header>
-      <div class="top_container">
-        <div class="chrono_mauve">
-          <p>Voiture mauve</p>
-          <span id="chrono1">00:00:00</span>
-        </div>
-        <div class="button">
-          <h1>Course de Voitures</h1>
-          <button type="button" id="demarrerCourse" onclick="demarrerCourse()">
-            Démarer la course
-          </button>
+      <header>
+        <div class="top_container">
+          <div class="chrono_mauve">
+            <p>Voiture mauve</p>
+            <span id="chrono1">00:00:00</span>
+          </div>
+          <div class="button">
+            <h1>Course de Voitures</h1>
+            <button
+              type="button"
+              id="demarrerCourse"
+              onclick="demarrerCourse()"
+            >
+              Démarer la course
+            </button>
 
-          <button type="button" id="arreterCourse" onclick="arreterCourse()">
-            Arrêter la course
-          </button>
-          <p id="resultat"></p>
+            <button type="button" id="arreterCourse" onclick="arreterCourse()">
+              Arrêter la course
+            </button>
+            <p id="resultat"></p>
+          </div>
+          <div class="chrono_rouge">
+            <p>Voiture rouge</p>
+            <span id="chrono2">00:00:00</span>
+          </div>
         </div>
-        <div class="chrono_rouge">
-          <p>Voiture rouge</p>
-          <span id="chrono2">00:00:00</span>
-        </div>
-      </div>
-    </header>
-    <main>
-      
+      </header>
+      <main>
         <div class="container_voiture" id="voiture">
           <div class="voiture_mauve" id="mauve">
-            <img
-              class="mauve"
-              
-              src="./asset/img/voitures mauve.png"
-              alt=""
-            />
+            <img class="mauve" src="./asset/img/voitures mauve.png" alt="" />
           </div>
           <div class="voiture_rouge" id="rouge">
-            <img
-              class="rouge"
-              
-              src="./asset/img/voitures rouge.png"
-              alt=""
-            />
+            <img class="rouge" src="./asset/img/voitures rouge.png" alt="" />
           </div>
         </div>
         <div id="message"></div>
-      </div>
-    </main>
+        <div id="ligneArrivee"></div>
+      </main>
+    </div>
+
     <script src="course.js"></script>
   </body>
 </html>

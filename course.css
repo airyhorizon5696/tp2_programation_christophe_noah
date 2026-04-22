@@ -13,7 +13,7 @@ h1 {
 }
 #resultat {
   font-size: large;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 /* TOP CONTAINER */
 .top_container {
@@ -89,11 +89,13 @@ h1 {
 /* ROUTE / CONTAINER */
 .course_container {
   position: relative;
-  width: auto;
-  height: 50rem;
+  width: 100vw;
+  height: 100vh;
 
   background-image: url(./asset/img/route.jpg);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .container_voiture {
   width: 3.125rem;
@@ -108,15 +110,16 @@ h1 {
 .mauve,
 .rouge {
   position: absolute;
-  width: 10rem;
-  left: 50px;
+  width: 11rem;
+  left: -100px;
+  padding-bottom: 25rem;
 }
 .mauve {
-  top: 5rem;
+  top: 20rem;
 }
 
 .rouge {
-  top: 18.75rem;
+  top: 40rem;
 }
 
 #message {
@@ -140,4 +143,22 @@ h1 {
 #rouge {
   position: absolute;
   left: 0;
+}
+
+#ligneArrivee {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+
+  background: repeating-linear-gradient(
+    45deg,
+    black 0px,
+    black 10px,
+    white 10px,
+    white 20px
+  );
+
+  z-index: 1;
 }
